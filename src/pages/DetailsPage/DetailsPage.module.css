@@ -1,0 +1,22 @@
+.information{
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    margin-top: 50px;
+}
+
+.list {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    list-style-type: none;
+}
+
+.link {
+    font-size: 20px;
+    text-decoration: none;
+}
+
+.active {
+    color: red;
+}

@@ -1,0 +1,31 @@
+.homeActive{
+
+}
+
+.home{
+
+}
+
+.moviesActive{
+
+}
+
+.movies {
+
+}
+
+.list{
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    list-style-type: none;
+}
+
+.link{
+    font-size: 50px;
+    text-decoration: none;
+}
+
+.active{
+    color: red;
+}
