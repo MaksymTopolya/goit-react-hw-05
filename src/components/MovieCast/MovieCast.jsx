@@ -1,10 +1,10 @@
 import { useParams} from "react-router-dom";
 import { getCast } from "../../filmsApi";
 import { useEffect, useState} from "react";
-import FilmCastRender from "../FilmCastRender/FilmCastRender";
-import css from "./FilmCast.module.css"
+import MovieCastRender from "../MovieCastRender/MovieCastRender";
+import css from "./MovieCast.module.css"
 
-export default function FilmCast() {
+export default function MovieCast() {
     const { filmId } = useParams();
     const [casts, setCast] = useState([]);
 
@@ -26,7 +26,7 @@ export default function FilmCast() {
             <ul className={css.list}>
                {casts.map((cast) =>
                     <li key={cast.id}>
-                        <FilmCastRender character={cast.character} name={cast.original_name} img={cast.profile_path} />
+                        <MovieCastRender character={cast.character} name={cast.original_name} img={cast.profile_path} />
                     </li>  
                 )}
             </ul>

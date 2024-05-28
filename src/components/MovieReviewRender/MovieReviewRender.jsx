@@ -1,5 +1,5 @@
-import css from "./FilmsReviewRender.module.css"
-export default function FilmsReviewRender({ author, content }) {
+import css from "./MovieReviewRender.module.css"
+export default function MovieReviewRender({ author, content }) {
 
     return (
         <div className={css.container}>

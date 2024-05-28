@@ -2,10 +2,10 @@ import { useState, useEffect, useRef } from 'react';
 import { Outlet, useParams, useLocation, Link } from 'react-router-dom';
 import { getById } from '../../filmsApi';
 import { NavLink } from 'react-router-dom';
-import css from "./DetailsPage.module.css"
+import css from "./MovieDetailsPage.module.css"
 import clsx from 'clsx';
 
-export default function DetailsPage() {
+export default function MovieDetailsPage() {
   const { filmId } = useParams();
   const [film, setFilm] = useState({});
 

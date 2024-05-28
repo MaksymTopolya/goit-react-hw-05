@@ -5,9 +5,9 @@ const HomePage = lazy(() => import('./pages/HomePage/HomePage'))
 const MoviesPage = lazy(() => import('./pages/MoviesPage/MoviesPage')) 
 const Navigation = lazy(() => import('./Navigation/Navigation')) 
 const ErrorPage = lazy(() => import('./pages/ErrorPage/ErrorPage')) 
-const DetailsPage = lazy(() => import('./pages/DetailsPage/DetailsPage')) 
-const FilmCast = lazy(() => import('./components/FilmCast/FilmCast')) 
-const FilmsReview = lazy(() => import('./components/FilmReview/FilmReview')) 
+const MovieDetailsPage = lazy(() => import('./pages/MovieDetailsPage/MovieDetailsPage')) 
+const MovieCast = lazy(() => import('./components/MovieCast/MovieCast')) 
+const MovieReviews = lazy(() => import('./components/MovieReviews/MovieReviews')) 
 
 function App() {
   return (
@@ -17,9 +17,9 @@ function App() {
         <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/movies" element={<MoviesPage />} />
-        <Route path="/movies/:filmId" element={<DetailsPage />}>
-          <Route path="cast" element={<FilmCast />} />
-          <Route path="revievs" element={<FilmsReview />}/>
+        <Route path="/movies/:filmId" element={<MovieDetailsPage/>}>
+          <Route path="cast" element={<MovieCast />} />
+          <Route path="revievs" element={<MovieReviews />}/>
         </Route> 
         <Route path="*" element={<ErrorPage />} />
       </Routes>

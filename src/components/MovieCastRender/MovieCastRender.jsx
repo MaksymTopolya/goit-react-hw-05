@@ -1,5 +1,5 @@
-import css from "./FilmCastRender.module.css"
-export default function FilmCastRender({ character, name, img }) {
+import css from "./MovieCastRender.module.css"
+export default function MovieCastRender({ character, name, img }) {
 
     return (
         <div>

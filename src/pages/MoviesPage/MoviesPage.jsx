@@ -1,4 +1,4 @@
-import { useState} from 'react';
+import { useEffect, useState } from 'react';
 import { getByName } from "../../filmsApi";
 import MovieList from '../../components/MovieList/MovieList';
 import { useSearchParams } from 'react-router-dom';
@@ -10,19 +10,25 @@ export default function MoviesPage() {
   const search = searchParams.get("query") ?? "";
   const [query, setQuery] = useState(search);
 
+  useEffect(() => {
+    const fetchFilms = async () => {
+      const formattedQuery = search.split(" ").join("+");
+      if (formattedQuery) {
+        try {
+          const data = await getByName(formattedQuery);
+          setFilmsListByQuery(data);
+        } catch (err) {
+          console.error('Failed to fetch films:', err);
+        }
+      }
+    };
 
+    fetchFilms();
+  }, [search]);
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    const formattedQuery = query.split(" ").join("+");
-    
-    try {
-      const data = await getByName(formattedQuery);
-      setFilmsListByQuery(data);
-      setSearchParams({ query: formattedQuery });
-    } catch (err) {
-      console.error('Failed to fetch films:', err);
-    }
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    setSearchParams({ query });
   };
 
   return (
@@ -37,14 +43,11 @@ export default function MoviesPage() {
         />
         <button type="submit">Search</button>
       </form>
-      <ul>
-        {filmsListByQuery.map((film) => (
-          <li key={film.id}>
-            <MovieList id={film.id} name={film.title} />
-          </li>
-        ))}
-      </ul>
+
+      <MovieList films={filmsListByQuery } />
+      
     </div>
   );
 }
+
 

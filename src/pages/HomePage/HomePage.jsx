@@ -18,14 +18,8 @@ export default function HomePage() {
 
   return (
     <div>
-            <h1>Trending today</h1>
-            <ul>
-                {filmsList.map((film) =>
-                    <li key={film.id}>
-                        <MovieList id={film.id} name={film.title} />
-                    </li>  
-                )}
-            </ul>
+       <h1>Trending today</h1>
+      <MovieList films={filmsList } />
         </div>
   );
 }
@@ -33,3 +27,4 @@ export default function HomePage() {
 
 
 
+  
